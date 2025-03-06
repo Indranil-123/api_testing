@@ -1,0 +1,13 @@
+uvicorn
+fastapi
+SQLAlchemy
+setuptools
+numpy
+pandas
+nltk
+matplotlib
+mlflow
+psycopg2-binary
+torch
+torchvision
+torchaudio
