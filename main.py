@@ -9,7 +9,7 @@ from src.preprocessing import tokenize, bag_of_words
 app = FastAPI()
 
 # Load intents
-with open('dataset/train_data.json', 'r') as json_data:
+with open('dataset/train_data_M1.json', 'r') as json_data:
     intents = json.load(json_data)
 
 # Load trained model
