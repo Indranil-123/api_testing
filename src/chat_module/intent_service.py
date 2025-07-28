@@ -9,7 +9,6 @@ from textblob import TextBlob
 from typing import Tuple
 from src.chat_module.serializer import TextInput, IntentResponse
 
-
 # ✅ Load dataset and model globally
 with open('src/chat_module/dataset/intent_training_dataset.json', 'r') as f:
     data = json.load(f)
@@ -24,20 +23,19 @@ with open('src/chat_module/encoder/label_encoder.json', 'r') as f:
 
 model.eval()
 
-
-# ✅ Utility functions
+# ✅ Synchronous language transform
 def language_transform(sentence: str) -> str:
     translator = Translator()
     translated = translator.translate(sentence, dest='en')
     return translated.text
 
-
+# ✅ Synchronous spelling correction
 def correct_spelling(sentence: str) -> str:
     blob = TextBlob(sentence)
     corrected_sentence = blob.correct()
     return str(corrected_sentence)
 
-
+# ✅ Synchronous transformation function
 def transformation(sentence: str) -> Tuple[str, str]:
     code = detect(sentence)
 
@@ -58,19 +56,19 @@ def transformation(sentence: str) -> Tuple[str, str]:
         transformed = language_transform(sentence)
         return transformed, predicted_language
 
-
+# ✅ Main intent prediction logic
 def predict_intent(input_text: TextInput) -> IntentResponse:
     sentence = input_text.text
 
     transformed_text, detected_language = transformation(sentence)
 
-    # Predict intent
+    # Tokenize and predict
     inputs = tokenizer(transformed_text, return_tensors='pt', truncation=True, padding='max_length', max_length=32)
     outputs = model(**inputs)
     probs = torch.nn.functional.softmax(outputs.logits, dim=1)
     confidence, predicted_class = torch.max(probs, dim=1)
 
-    # Updated label fetching with index safety
+    # Safe label retrieval
     try:
         intent = labels[predicted_class.item()]
     except (IndexError, KeyError):

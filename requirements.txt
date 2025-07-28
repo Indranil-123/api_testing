@@ -6,7 +6,7 @@ transformers
 scikit-learn
 numpy
 langdetect
-googletrans== 4.0.2
+googletrans==4.0.0-rc1
 textblob
 psycopg2-binary
 websockets
@@ -16,5 +16,3 @@ python-jose
 starlette
 joblib
 sqlalchemy
-nltk==3.8.1
-httpx== 0.28.1
