@@ -2,8 +2,8 @@
 # If using pyenv or poetry, you can set:
 # python_version = "3.10"
 
-fastapi==0.100.0
-uvicorn==0.23.2
+fastapi
+uvicorn[standard]
 
 # Transformer + torch stack
 transformers
@@ -16,12 +16,11 @@ nltk==3.8.1
 httpx==0.24.1
 
 # Optional: for language detection and translation
-langdetect==1.0.9
-textblob==0.17.1
-googletrans==4.0.0rc1
-
+langdetect
+textblob
+googletrans
 # If you're using label encoding
-scikit-learn==1.3.0
-pandas==1.5.3
+scikit-learn
+pandas
 
 # Avoiding any deprecated modules like cgi — stay on Python 3.12 or earlier
