@@ -6,8 +6,8 @@ fastapi==0.100.0
 uvicorn==0.23.2
 
 # Transformer + torch stack
-transformers==4.33.2
-torch==2.0.1
+transformers
+torch
 
 # NLP tools
 nltk==3.8.1
