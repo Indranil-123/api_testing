@@ -1,18 +1,27 @@
-fastapi
-uvicorn[standard]
-pandas
-torch
-transformers
-scikit-learn
-numpy
-langdetect
-googletrans==4.0.0-rc1
-textblob
-psycopg2-binary
-websockets
-slowapi
-python-dotenv
-python-jose
-starlette
-joblib
-sqlalchemy
+# Python version (use <= 3.12 to avoid cgi removal)
+# If using pyenv or poetry, you can set:
+# python_version = "3.10"
+
+fastapi==0.100.0
+uvicorn==0.23.2
+
+# Transformer + torch stack
+transformers==4.33.2
+torch==2.0.1
+
+# NLP tools
+nltk==3.8.1
+
+# HTTP client
+httpx==0.24.1
+
+# Optional: for language detection and translation
+langdetect==1.0.9
+textblob==0.17.1
+googletrans==4.0.0rc1
+
+# If you're using label encoding
+scikit-learn==1.3.0
+pandas==1.5.3
+
+# Avoiding any deprecated modules like cgi — stay on Python 3.12 or earlier
